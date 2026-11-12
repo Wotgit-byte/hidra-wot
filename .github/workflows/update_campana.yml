@@ -1,0 +1,33 @@
+name: Actualización Campaña NA WoT (Prime Time)
+
+on:
+  schedule:
+    # 01:00, 02:00, 03:00, 04:00 y 05:00 hora de España (CET = UTC+1)
+    # En UTC equivale a 00:00, 01:00, 02:00, 03:00 y 04:00
+    - cron: '0 0,1,2,3,4 * * *'
+  workflow_dispatch: # Permite ejecutarlo manualmente con un clic en GitHub
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Actualizar datos oficiales desde Wargaming NA
+        run: |
+          python scripts/update_stats.py
+
+      - name: Guardar y publicar cambios
+        run: |
+          git config user.name "Hidra Bot"
+          git config user.email "bot@clanhidra.com"
+          git add -A
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update standings [skip ci]" && git push)

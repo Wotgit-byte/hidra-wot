@@ -1,0 +1,5 @@
+# Heavy screenshots
+Screenshot_*.png
+*.tmp
+__pycache__/
+.DS_Store
