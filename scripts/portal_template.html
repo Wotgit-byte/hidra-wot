@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maneuvers NA 2026 — Tracker Oficial & Clan Info [HIDRA]</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-body: #090d12;
+            --bg-sidebar: #0f131a;
+            --bg-card: #141822;
+            --bg-card-sub: #0b0f16;
+            --border: #242c38;
+            --border-hover: #3e4a5d;
+            --text-main: #f0f6fc;
+            --text-muted: #8b949e;
+            --orange: #e27d24;
+            --orange-bright: #f59e0b;
+            --orange-glow: rgba(245, 158, 11, 0.22);
+            --green: #238636;
+            --green-text: #3fb950;
+            --green-glow: rgba(63, 185, 80, 0.25);
+            --red: #da3633;
+            --red-text: #f85149;
+            --cyan: #38bdf8;
+            --purple: #8b5cf6;
+            --purple-bg: rgba(139, 92, 246, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background: var(--bg-body);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            width: 250px;
+            background: var(--bg-sidebar);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+        }
+
+        .sidebar-header {
+            padding: 18px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-badge {
+            background: linear-gradient(135deg, #b91c1c, #dc2626);
+            color: #fff;
+            font-weight: 900;
+            padding: 4px 9px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .brand-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .brand-sub {
+            font-size: 11px;
+            color: var(--orange-bright);
+            font-weight: 600;
+        }
+
+        .nav-menu {
+            padding: 16px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex: 1;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 11px 14px;
+            border-radius: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13.5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.04);
+            color: #fff;
+        }
+
+        .nav-item.active {
+            background: rgba(226, 125, 36, 0.15);
+            color: var(--orange-bright);
+            border-left: 3px solid var(--orange-bright);
+            font-weight: 700;
+        }
+
+        .sidebar-footer {
+            padding: 16px;
+            border-top: 1px solid var(--border);
+            font-size: 11px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .sync-dot {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            background: var(--green-text);
+            border-radius: 50%;
+            margin-right: 6px;
+            box-shadow: 0 0 6px var(--green-text);
+        }
+
+        /* Content Area */
+        .content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            overflow-y: auto;
+        }
+
+        .main-container {
+            max-width: 1300px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 24px;
+            flex: 1;
+        }
+
+        .tab-view {
+            display: none;
+        }
+
+        .tab-view.active {
+            display: block;
+        }
+
+        /* Search Bar con 3 Botones */
+        .search-bar-row {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 14px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .search-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .input-wrap {
+            position: relative;
+            flex: 1;
+            min-width: 220px;
+            max-width: 320px;
+        }
+
+        .tag-input {
+            width: 100%;
+            background: var(--bg-card-sub);
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 700;
+            outline: none;
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+        }
+
+        .tag-input:focus {
+            border-color: var(--orange-bright);
+            box-shadow: 0 0 10px var(--orange-glow);
+        }
+
+        .autocomplete-dropdown {
+            position: absolute;
+            top: calc(100% + 4px);
+            left: 0;
+            right: 0;
+            background: #19202c;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            max-height: 260px;
+            overflow-y: auto;
+            z-index: 200;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+            display: none;
+        }
+
+        .autocomplete-dropdown.active {
+            display: block;
+        }
+
+        .autocomplete-item {
+            padding: 9px 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(48, 54, 61, 0.3);
+            font-size: 13px;
+        }
+
+        .autocomplete-item:hover {
+            background: rgba(226, 125, 36, 0.15);
+        }
+
+        .btn-hemero {
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: all 0.15s;
+            text-decoration: none;
+        }
+
+        .btn-search {
+            background: var(--orange);
+            color: #fff;
+        }
+
+        .btn-search:hover {
+            background: var(--orange-bright);
+        }
+
+        .btn-personal {
+            background: var(--orange);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-personal:hover {
+            background: var(--orange-bright);
+            box-shadow: 0 0 12px var(--orange-glow);
+        }
+
+        .btn-tanks {
+            background: #242c38;
+            color: var(--text-main);
+            border: 1px solid var(--border);
+        }
+
+        .quick-chips {
+            width: 100%;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 6px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(48, 54, 61, 0.4);
+        }
+
+        .chip-btn {
+            background: var(--bg-card-sub);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 3px 9px;
+            border-radius: 6px;
+            font-size: 11.5px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'JetBrains Mono', monospace;
+            transition: all 0.15s;
+        }
+
+        .chip-btn:hover {
+            border-color: var(--orange-bright);
+            color: var(--orange-bright);
+        }
+
+        /* Header Clan Title */
+        .clan-header {
+            margin-bottom: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .clan-name-title {
+            font-size: 26px;
+            font-weight: 800;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .clan-tag-orange {
+            color: var(--orange-bright);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* ================= LOS 3 DATOS VITALES (HERO CARDS) ================= */
+        .hero-metrics-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        @media (max-width: 860px) {
+            .hero-metrics-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hero-card {
+            background: linear-gradient(180deg, #181e2b 0%, #121620 100%);
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            padding: 22px 20px;
+            text-align: center;
+            position: relative;
+            transition: all 0.2s;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+        }
+
+        .hero-card.rank-card {
+            border-color: rgba(245, 158, 11, 0.4);
+            background: linear-gradient(180deg, rgba(245, 158, 11, 0.08) 0%, #121620 100%);
+        }
+
+        .hero-card.tank-card {
+            border-color: rgba(63, 185, 80, 0.5);
+            background: linear-gradient(180deg, rgba(63, 185, 80, 0.12) 0%, #121620 100%);
+            cursor: pointer;
+        }
+
+        .hero-card.tank-card:hover {
+            border-color: var(--green-text);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px var(--green-glow);
+        }
+
+        .hero-card.wr-card {
+            border-color: rgba(56, 189, 248, 0.4);
+            background: linear-gradient(180deg, rgba(56, 189, 248, 0.08) 0%, #121620 100%);
+        }
+
+        .hero-val {
+            font-size: 38px;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+
+        .hero-lbl {
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+
+        .hero-sub {
+            font-size: 11.5px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .hero-badge-click {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 8px;
+            background: rgba(63, 185, 80, 0.2);
+            color: var(--green-text);
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 11.5px;
+            font-weight: 700;
+        }
+
+        /* Fila Secundaria */
+        .secondary-metrics-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 960px) {
+            .secondary-metrics-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .sub-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 12px 14px;
+            text-align: center;
+        }
+
+        .sub-box.clickable {
+            cursor: pointer;
+            border-color: rgba(56, 189, 248, 0.35);
+        }
+
+        .sub-box.clickable:hover {
+            border-color: var(--cyan);
+            background: rgba(56, 189, 248, 0.05);
+        }
+
+        .sub-val {
+            font-size: 18px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .sub-lbl {
+            font-size: 10.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
+
+        /* Cara a Cara vs HIDRA */
+        .h2h-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 18px 22px;
+            margin-bottom: 24px;
+        }
+
+        .h2h-title {
+            font-size: 15px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .h2h-summary-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg-card-sub);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .h2h-score {
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .mini-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12.5px;
+        }
+
+        .mini-table th {
+            text-align: left;
+            padding: 8px 10px;
+            background: var(--bg-card-sub);
+            color: var(--text-muted);
+            font-size: 11px;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mini-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid rgba(48, 54, 61, 0.3);
+            color: var(--text-muted);
+        }
+
+        .badge-win {
+            background: rgba(35, 134, 54, 0.2);
+            color: var(--green-text);
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 11px;
+        }
+
+        .badge-loss {
+            background: rgba(218, 54, 51, 0.2);
+            color: var(--red-text);
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 11px;
+        }
+
+        /* Personal Points Tab */
+        .personal-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        .personal-top {
+            padding: 16px 20px;
+            background: var(--bg-card-sub);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .clan-banner-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 14px 20px;
+            background: rgba(255, 255, 255, 0.015);
+            border-bottom: 1px solid var(--border);
+            font-size: 13px;
+        }
+
+        .filter-row {
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .chk-label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12.5px;
+            cursor: pointer;
+            color: var(--text-main);
+        }
+
+        .personal-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .personal-table th {
+            background: var(--bg-card-sub);
+            padding: 10px 12px;
+            text-align: left;
+            color: var(--text-muted);
+            font-size: 11px;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .personal-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(48, 54, 61, 0.3);
+            color: var(--text-muted);
+        }
+
+        .row-tank {
+            background: rgba(63, 185, 80, 0.06);
+        }
+
+        .tank-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(63, 185, 80, 0.18);
+            color: var(--green-text);
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 11.5px;
+        }
+
+        /* Subheader para Estadísticas del Evento */
+        .th-event-group {
+            background: #19202c !important;
+            color: var(--cyan) !important;
+            font-weight: 700 !important;
+            text-align: center !important;
+            border-left: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+        }
+
+        /* Leaderboard Tab */
+        .leaderboard-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .leaderboard-table th {
+            background: var(--bg-card-sub);
+            padding: 12px 14px;
+            text-align: left;
+            color: var(--text-muted);
+            font-size: 11px;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .leaderboard-table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid rgba(48, 54, 61, 0.35);
+            color: var(--text-muted);
+        }
+
+        .leaderboard-table tr:hover td {
+            background: rgba(255, 255, 255, 0.03);
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <span class="brand-badge">[HIDRA]</span>
+            <div>
+                <div class="brand-title">Maneuvers NA 2026</div>
+                <div class="brand-sub">Tracker Táctico</div>
+            </div>
+        </div>
+
+        <nav class="nav-menu">
+            <div class="nav-item active" id="nav-claninfo" onclick="switchTab('claninfo')">
+                <span class="nav-icon">📋</span>
+                <span>Ficha de Clan (Info)</span>
+            </div>
+            <div class="nav-item" id="nav-personal" onclick="switchTab('personal')">
+                <span class="nav-icon">👥</span>
+                <span>Puntos Personales</span>
+            </div>
+            <div class="nav-item" id="nav-leaderboard" onclick="switchTab('leaderboard')">
+                <span class="nav-icon">🏆</span>
+                <span>Leaderboard NA (Clanes Clasificados)</span>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div><span class="sync-dot"></span>API Wargaming NA Conectada</div>
+            <div style="margin-top: 4px; color: #768390;">Corte de Tanque en NA: <strong>Top 1.000</strong></div>
+            <div style="margin-top: 4px; color: var(--orange-bright);">Prime: 01:00 a 05:00 CET</div>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="content-area">
+        <div class="main-container">
+
+            <!-- ================= TAB 1: CLAN INFO ================= -->
+            <section id="tab-claninfo" class="tab-view active">
+
+                <!-- Search Bar con 3 Botones -->
+                <div class="search-bar-row">
+                    <span class="search-label">Clan tag:</span>
+                    <div class="input-wrap">
+                        <input type="text" id="clan-input" class="tag-input" placeholder="TAG (ej. CLASX, GNZ, HIDRA)..." autocomplete="off">
+                        <div id="autocomplete-box" class="autocomplete-dropdown"></div>
+                    </div>
+                    <button class="btn-hemero btn-search" onclick="handleSearch()">Search</button>
+                    <button class="btn-hemero btn-tanks" onclick="alert('Sección Vehículos: datos de tanques utilizados en el evento.')">Tanks used</button>
+                    <button class="btn-hemero btn-personal" onclick="goToPersonal(false)">Personal points</button>
+
+                    <!-- Quick Chips -->
+                    <div class="quick-chips">
+                        <span style="font-size: 11px; color: var(--text-muted);">Acceso Rápido:</span>
+                        <span class="chip-btn" onclick="selectClan('[HIDRA]')">[HIDRA] Nuestro Clan</span>
+                        <span class="chip-btn" onclick="selectClan('[CLASX]')">[CLASX] #94</span>
+                        <span class="chip-btn" onclick="selectClan('[WOHT]')">[WOHT] #52</span>
+                        <span class="chip-btn" onclick="selectClan('[GNZ]')">[GNZ] #56</span>
+                        <span class="chip-btn" onclick="selectClan('[XREDX]')">[XREDX] #54</span>
+                        <span class="chip-btn" onclick="selectClan('[MAHOU]')">[MAHOU] #1</span>
+                    </div>
+                </div>
+
+                <!-- Clan Header Title -->
+                <div class="clan-header" id="clan-header-title">
+                    <!-- Injected by JS -->
+                </div>
+
+                <!-- ================= LOS 3 DATOS REALMENTE IMPORTANTES ================= -->
+                <div class="hero-metrics-row" id="hero-metrics-container">
+                    <!-- Injected by JS -->
+                </div>
+
+                <!-- Fila Secundaria: Contexto adicional sin robar atención -->
+                <div class="secondary-metrics-row" id="secondary-metrics-container">
+                    <!-- Injected by JS -->
+                </div>
+
+                <!-- Cara a Cara vs HIDRA -->
+                <div class="h2h-box" id="h2h-container">
+                    <!-- Injected by JS -->
+                </div>
+
+            </section>
+
+            <!-- ================= TAB 2: PUNTOS PERSONALES (ESTILO CAPTURA EXACTA) ================= -->
+            <section id="tab-personal" class="tab-view">
+
+                <div class="personal-card">
+                    <div class="personal-top">
+                        <div>
+                            <h2 style="font-size: 17px; color: #fff;">Puntos de fama personal de los jugadores del clan (Servidor NA)</h2>
+                            <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">
+                                Mostrando todos los miembros que tienen al menos un punto de evento (Corte de tanque: Top 1.000)
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 8px; align-items: center;">
+                            <span style="font-size: 12px; color: var(--text-muted);">Clan:</span>
+                            <input type="text" id="personal-tag-input" class="tag-input" style="width: 120px; padding: 5px 10px; font-size: 12px;" placeholder="TAG...">
+                            <button class="btn-hemero btn-search" style="padding: 5px 12px; font-size: 12px;" onclick="searchFromPersonal()">Ver</button>
+                        </div>
+                    </div>
+
+                    <div class="clan-banner-grid" id="personal-banner-stats">
+                        <!-- Injected by JS -->
+                    </div>
+
+                    <div class="filter-row">
+                        <label class="chk-label">
+                            <input type="checkbox" id="chk-tank-only" onchange="applyFilters()">
+                            <span style="color: var(--green-text); font-weight: 700;">🚜 Solo en Tanque (Top 1.000 NA)</span>
+                        </label>
+                        <label class="chk-label">
+                            <input type="checkbox" id="chk-no-tank" onchange="applyFilters()">
+                            <span>Sin tanque</span>
+                        </label>
+                        <div style="margin-left: auto; display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 12px; color: var(--text-muted);">Buscar jugador:</span>
+                            <input type="text" id="filter-player-name" class="tag-input" style="width: 170px; padding: 5px 10px; font-size: 12px;" placeholder="Nick..." oninput="applyFilters()">
+                        </div>
+                    </div>
+
+                    <!-- Tabla idéntica a Hemero con las columnas de Estadísticas del Evento -->
+                    <table class="personal-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 40px;" rowspan="2">N.°</th>
+                                <th rowspan="2">Nombre (Nick Oficial)</th>
+                                <th rowspan="2">Rol en Clan</th>
+                                <th rowspan="2">Posición</th>
+                                <th rowspan="2">Puntos de Fama</th>
+                                <th rowspan="2">Δ al corte (1k)</th>
+                                <th colspan="4" class="th-event-group">Estadísticas del evento (Escaramuzas T11)</th>
+                                <th rowspan="2">Premio</th>
+                            </tr>
+                            <tr>
+                                <th style="background: #19202c; color: var(--cyan); border-left: 1px solid var(--border);">Daño</th>
+                                <th style="background: #19202c; color: var(--cyan);">Batallas</th>
+                                <th style="background: #19202c; color: var(--cyan);">Victorias</th>
+                                <th style="background: #19202c; color: var(--cyan); border-right: 1px solid var(--border);" title="Promedio de enemigos destruidos por batalla (Frags / Kills)">Bajas (Frags)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="personal-tbody">
+                            <!-- Injected by JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+
+            <!-- ================= TAB 3: LEADERBOARD NA (#1 al #150) ================= -->
+            <section id="tab-leaderboard" class="tab-view">
+
+                <div class="personal-card">
+                    <div class="personal-top">
+                        <div>
+                            <h2 style="font-size: 17px; color: #fff;">🏆 Clan`s Leaderboard — Servidor NA</h2>
+                            <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">
+                                Clasificación oficial de clanes clasificados con puntos en el evento. Haz clic en cualquier clan para abrir su Ficha Táctica.
+                            </div>
+                        </div>
+                        <div>
+                            <input type="text" id="leaderboard-filter" class="tag-input" style="width: 200px; padding: 5px 10px; font-size: 12px;" placeholder="Filtrar clan..." oninput="filterLeaderboard()">
+                        </div>
+                    </div>
+
+                    <table class="leaderboard-table">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Tag</th>
+                                <th>Nombre Oficial</th>
+                                <th>Puntos de Clan</th>
+                                <th>Winrate Evento</th>
+                                <th>Jugadores en Tanque</th>
+                                <th>Elo Fortaleza 10</th>
+                                <th>Premio</th>
+                                <th>vs HIDRA</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboard-tbody">
+                            <!-- Injected by JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <script>
+        const clansData = /*CLANS_DATA_JSON*/[];
+        const playersData = /*PLAYERS_DATA_JSON*/{};
+        let currentClan = clansData.find(c => c.tag === '[HIDRA]') || clansData[0];
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-view').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+
+            document.getElementById('tab-' + tabId).classList.add('active');
+            document.getElementById('nav-' + tabId).classList.add('active');
+
+            if (tabId === 'claninfo') renderClanInfo();
+            else if (tabId === 'personal') renderPersonalView();
+            else if (tabId === 'leaderboard') renderLeaderboard();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Autocomplete
+        const searchInput = document.getElementById('clan-input');
+        const autoBox = document.getElementById('autocomplete-box');
+
+        searchInput.addEventListener('input', function() {
+            const val = this.value.trim().toLowerCase();
+            if (!val) {
+                autoBox.classList.remove('active');
+                return;
+            }
+
+            const matches = clansData.filter(c => 
+                c.tag.toLowerCase().includes(val) || 
+                c.name.toLowerCase().includes(val)
+            ).slice(0, 10);
+
+            if (matches.length === 0) {
+                autoBox.classList.remove('active');
+                return;
+            }
+
+            autoBox.innerHTML = '';
+            matches.forEach(m => {
+                const div = document.createElement('div');
+                div.className = 'autocomplete-item';
+                div.innerHTML = `
+                    <div>
+                        <strong style="color: var(--orange-bright); font-family: 'JetBrains Mono';">${m.tag}</strong>
+                        <span style="color: #fff; margin-left: 6px;">${m.name}</span>
+                    </div>
+                    <span style="font-size: 11px; color: var(--text-muted); background: var(--bg-card-sub); padding: 2px 6px; border-radius: 4px;">
+                        ${m.rank ? '#' + m.rank : 'Sin clasif.'}
+                    </span>
+                `;
+                div.onclick = () => {
+                    selectClan(m.tag);
+                    autoBox.classList.remove('active');
+                    searchInput.value = m.tag.replace('[', '').replace(']', '');
+                };
+                autoBox.appendChild(div);
+            });
+            autoBox.classList.add('active');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!searchInput.contains(e.target) && !autoBox.contains(e.target)) {
+                autoBox.classList.remove('active');
+            }
+        });
+
+        function handleSearch() {
+            const val = searchInput.value.trim().toLowerCase();
+            if (!val) return;
+            const match = clansData.find(c => 
+                c.tag.toLowerCase().includes(val) || 
+                c.tag.replace('[', '').replace(']', '').toLowerCase() === val ||
+                c.name.toLowerCase().includes(val)
+            );
+            if (match) {
+                selectClan(match.tag);
+                autoBox.classList.remove('active');
+            }
+        }
+
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') handleSearch();
+        });
+
+        function selectClan(tag) {
+            const found = clansData.find(c => c.tag.toLowerCase() === tag.toLowerCase());
+            if (found) {
+                currentClan = found;
+                searchInput.value = found.tag.replace('[', '').replace(']', '');
+                renderClanInfo();
+                switchTab('claninfo');
+            }
+        }
+
+        function goToPersonal(tankOnly = false) {
+            renderPersonalView(tankOnly);
+            switchTab('personal');
+        }
+
+        // Render Clan Info Tab
+        function renderClanInfo() {
+            const c = currentClan;
+            const isHidra = (c.tag === '[HIDRA]');
+
+            // Header Title
+            document.getElementById('clan-header-title').innerHTML = `
+                <div class="clan-name-title">
+                    <span>Clan</span>
+                    <span class="clan-tag-orange">${c.tag}</span>
+                    <span>${c.name}</span>
+                </div>
+                <div>
+                    <span style="font-size: 13px; font-weight: 700; color: var(--orange-bright); background: rgba(245, 158, 11, 0.12); padding: 6px 14px; border-radius: 6px; border: 1px solid rgba(245, 158, 11, 0.3);">
+                        Premio: ${c.prize}
+                    </span>
+                </div>
+            `;
+
+            // ================= LOS 3 DATOS VITALES DESTACADOS =================
+            document.getElementById('hero-metrics-container').innerHTML = `
+                <!-- 1. PUESTO DEL CLAN -->
+                <div class="hero-card rank-card">
+                    <div class="hero-val" style="color: var(--orange-bright);">${c.rank ? '#' + c.rank : '—'}</div>
+                    <div class="hero-lbl" style="color: var(--orange-bright);">PUESTO DEL CLAN</div>
+                    <div class="hero-sub">${c.rank ? 'Clasificación Oficial NA' : 'Sin clasificar (>#150)'}</div>
+                </div>
+
+                <!-- 2. JUGADORES EN TANQUE (CLICKABLE A LA LISTA) -->
+                <div class="hero-card tank-card" onclick="goToPersonal(true)" title="Clic para ver los jugadores de ${c.tag} que aseguran tanque">
+                    <div class="hero-val" style="color: var(--green-text);">${c.tank_players !== null ? c.tank_players : '—'}</div>
+                    <div class="hero-lbl" style="color: var(--green-text);">JUGADORES EN TANQUE</div>
+                    <div class="hero-sub">Superando el corte de NA (Top 1.000)</div>
+                    <div><span class="hero-badge-click">Ver lista nominal ↗</span></div>
+                </div>
+
+                <!-- 3. WINRATE DEL EVENTO -->
+                <div class="hero-card wr-card">
+                    <div class="hero-val" style="color: var(--cyan);">${c.wr_event}</div>
+                    <div class="hero-lbl" style="color: var(--cyan);">WINRATE DEL EVENTO</div>
+                    <div class="hero-sub">Efectividad global en Maniobras</div>
+                </div>
+            `;
+
+            // Fila Secundaria
+            document.getElementById('secondary-metrics-container').innerHTML = `
+                <div class="sub-box">
+                    <div class="sub-val">${c.elo !== null ? c.elo : '—'}</div>
+                    <div class="sub-lbl">ELO FORTALEZA 10</div>
+                </div>
+                <div class="sub-box">
+                    <div class="sub-val">${c.pts !== null ? c.pts.toLocaleString() : '—'}</div>
+                    <div class="sub-lbl">PUNTOS DE FAMA CLAN</div>
+                </div>
+                <div class="sub-box">
+                    <div class="sub-val">${c.members !== null ? c.members : '—'}</div>
+                    <div class="sub-lbl">PLANTILLA DEL CLAN (API)</div>
+                </div>
+                <div class="sub-box clickable" onclick="goToPersonal(false)" title="Clic para ver todos los que puntúan">
+                    <div class="sub-val" style="color: var(--cyan);">${c.leaderboard_players !== null ? c.leaderboard_players : '—'} ↗</div>
+                    <div class="sub-lbl">EN LEADERBOARD (PUNTUANDO)</div>
+                </div>
+            `;
+
+            // Cara a Cara vs HIDRA
+            const h2h = document.getElementById('h2h-container');
+            if (isHidra) {
+                const totalB = c.eb || 156;
+                const winsB = c.ew || 85;
+                const lossesB = totalB - winsB;
+                const wrB = c.wr_event || '54.49%';
+                h2h.innerHTML = `
+                    <div class="h2h-title">🛡️ Resumen Global de Campaña: [HIDRA]</div>
+                    <div class="h2h-summary-bar">
+                        <div>
+                            <div style="font-size: 12px; color: var(--text-muted);">Balance Oficial en Maniobras (Hemero / WG)</div>
+                            <div class="h2h-score" style="color: var(--green-text);">${winsB} Victorias — ${lossesB} Derrotas (${wrB} WR)</div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 12px; color: var(--text-muted);">Total Batallas Disputadas</div>
+                            <div style="font-size: 16px; font-weight: 800; color: var(--orange-bright);">${totalB} Batallas</div>
+                        </div>
+                    </div>
+                `;
+            } else if (c.vs_hidra && (c.vs_hidra.hidra_wins > 0 || c.vs_hidra.hidra_losses > 0)) {
+                const hidraWins = c.vs_hidra.hidra_wins;
+                const hidraLosses = c.vs_hidra.hidra_losses;
+                const total = hidraWins + hidraLosses;
+                const wr = Math.round((hidraWins / total) * 100);
+
+                let rows = '';
+                c.vs_hidra.battles.forEach(b => {
+                    const isWin = (b.result === 'Victory');
+                    const scoreLabel = b.score ? `<strong>${b.score}</strong> ` : '';
+                    const ptsLabel = b.pts ? `<span style="color: var(--orange-bright); font-size: 11px; margin-left: 4px;">(+${b.pts} pts)</span>` : '';
+                    rows += `
+                        <tr>
+                            <td><strong style="color: var(--cyan);">${b.date || ''}</strong> <span style="color: var(--text-muted); font-size: 11.5px; margin-left: 4px;">${b.time}</span></td>
+                            <td><strong>${b.map}</strong></td>
+                            <td style="color: #fff; font-weight: 600;">${b.commander}</td>
+                            <td><span class="${isWin ? 'badge-win' : 'badge-loss'}">${scoreLabel}${isWin ? 'Victoria' : 'Derrota'}</span></td>
+                            <td><strong>${b.boxes}</strong> cajas ${ptsLabel}</td>
+                        </tr>
+                    `;
+                });
+
+                h2h.innerHTML = `
+                    <div class="h2h-title">⚔️ Cara a Cara: ${c.tag} vs [HIDRA]</div>
+                    <div class="h2h-summary-bar">
+                        <div>
+                            <div style="font-size: 12px; color: var(--text-muted);">Historial de Enfrentamientos Directos</div>
+                            <div class="h2h-score">
+                                <span style="color: var(--green-text);">${hidraWins} Victorias de HIDRA</span> — 
+                                <span style="color: var(--red-text);">${hidraLosses} Derrotas</span>
+                                <span style="font-size: 13px; color: var(--text-muted); margin-left: 8px;">(${wr}% WR)</span>
+                            </div>
+                        </div>
+                        <div>
+                            <span style="font-size: 12px; background: rgba(56, 189, 248, 0.15); color: var(--cyan); padding: 4px 10px; border-radius: 6px; font-weight: 700;">
+                                ${total} ${total === 1 ? 'Batalla disputada' : 'Batallas disputadas'}
+                            </span>
+                        </div>
+                    </div>
+                    <table class="mini-table">
+                        <thead>
+                            <tr>
+                                <th>Fecha y Hora</th>
+                                <th>Mapa</th>
+                                <th>Comandante</th>
+                                <th>Resultado (Marcador)</th>
+                                <th>Recursos / Fama</th>
+                            </tr>
+                        </thead>
+                        <tbody>${rows}</tbody>
+                    </table>
+                `;
+            } else {
+                h2h.innerHTML = `
+                    <div class="h2h-title">⚔️ Cara a Cara vs [HIDRA]</div>
+                    <div style="padding: 16px; background: var(--bg-card-sub); border: 1px dashed var(--border); border-radius: 8px; text-align: center; color: var(--text-muted); font-size: 13.5px;">
+                        🛡️ <strong>Sin enfrentamientos registrados contra [HIDRA] en esta campaña.</strong>
+                    </div>
+                `;
+            }
+        }
+
+        // Render Personal View
+        function renderPersonalView(tankOnly = false) {
+            const c = currentClan;
+            document.getElementById('personal-tag-input').value = c.tag.replace('[', '').replace(']', '');
+
+            document.getElementById('personal-banner-stats').innerHTML = `
+                <div>Puesto de Clan: <strong>${c.rank ? '#' + c.rank : 'Sin Clasif.'}</strong></div>
+                <div>Plantilla Oficial (API): <strong>${c.members || '—'}</strong></div>
+                <div>Multiplicador Bonos: <strong style="color: var(--orange-bright);">${c.multiplier || 'x1.00'}</strong></div>
+                <div>Puntos de Clan: <strong>${c.pts ? c.pts.toLocaleString() : '—'}</strong></div>
+                <div>En Leaderboard: <strong style="color: var(--cyan);">${c.leaderboard_players || '—'}</strong></div>
+                <div>En Tanque (Top 1.000 NA): <strong style="color: var(--green-text);">${c.tank_players || '—'}</strong></div>
+            `;
+
+            if (tankOnly) {
+                document.getElementById('chk-tank-only').checked = true;
+                document.getElementById('chk-no-tank').checked = false;
+            }
+
+            applyFilters();
+        }
+
+        function searchFromPersonal() {
+            const val = document.getElementById('personal-tag-input').value.trim().toLowerCase();
+            if (!val) return;
+            const match = clansData.find(c => 
+                c.tag.toLowerCase().includes(val) || 
+                c.tag.replace('[', '').replace(']', '').toLowerCase() === val ||
+                c.name.toLowerCase().includes(val)
+            );
+            if (match) {
+                currentClan = match;
+                renderPersonalView();
+            } else {
+                alert('Clan no encontrado.');
+            }
+        }
+
+        function applyFilters() {
+            const c = currentClan;
+            const players = playersData[c.tag] || [];
+            const tankOnly = document.getElementById('chk-tank-only').checked;
+            const noTankOnly = document.getElementById('chk-no-tank').checked;
+            const term = document.getElementById('filter-player-name').value.trim().toLowerCase();
+
+            const tbody = document.getElementById('personal-tbody');
+            tbody.innerHTML = '';
+
+            if (players.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="11" style="text-align: center; padding: 28px; color: var(--text-muted);">
+                            No hay jugadores registrados en el Leaderboard para ${c.tag}.
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            let count = 0;
+            players.forEach((p, idx) => {
+                if (tankOnly && !p.in_tank) return;
+                if (noTankOnly && p.in_tank) return;
+                if (term && !p.name.toLowerCase().includes(term)) return;
+
+                count++;
+                const tr = document.createElement('tr');
+                if (p.in_tank) tr.className = 'row-tank';
+
+                const diffBadge = p.diff >= 0 ? 
+                    `<strong style="color: var(--green-text);">+${p.diff}</strong>` : 
+                    `<strong style="color: var(--red-text);">${p.diff}</strong>`;
+
+                const rewardBadge = p.in_tank ? 
+                    `<span class="tank-badge">${p.prize} + 🚜 Tanque</span>` : 
+                    `<span style="color: var(--text-muted); font-size: 12px;">${p.prize}</span>`;
+
+                tr.innerHTML = `
+                    <td>${idx + 1}</td>
+                    <td><strong>${p.name}</strong></td>
+                    <td style="font-size: 11.5px; color: var(--text-muted);">${p.role || '-'}</td>
+                    <td style="font-weight: 700; color: #fff;">#${p.pos.toLocaleString()}</td>
+                    <td><strong style="color: #fff;">${p.pts.toLocaleString()}</strong></td>
+                    <td>${diffBadge}</td>
+                    <td style="color: var(--cyan); font-weight: 600;">${p.damage.toLocaleString()}</td>
+                    <td><strong>${p.battles}</strong></td>
+                    <td style="color: ${parseFloat(p.wins) >= 50 ? 'var(--green-text)' : 'var(--text-muted)'}; font-weight: 700;">${p.wins}</td>
+                    <td>${p.frags}</td>
+                    <td>${rewardBadge}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            if (count === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="11" style="text-align: center; padding: 24px; color: var(--text-muted);">
+                            Ningún jugador coincide con los filtros aplicados.
+                        </td>
+                    </tr>
+                `;
+            }
+        }
+
+        // Render Leaderboard
+        function renderLeaderboard() {
+            const tbody = document.getElementById('leaderboard-tbody');
+            tbody.innerHTML = '';
+
+            // STRICT FILTER: Only clans officially classified with points in the event
+            const rankedClans = clansData.filter(c => c.rank !== null && c.pts !== null && c.pts > 0);
+            rankedClans.sort((a, b) => a.rank - b.rank);
+
+            rankedClans.forEach(c => {
+                const isHidra = (c.tag === '[HIDRA]');
+                const tr = document.createElement('tr');
+                if (isHidra) tr.style.background = 'rgba(245, 158, 11, 0.1)';
+
+                let h2hBadge = '<span style="color: #484f58;">-</span>';
+                if (isHidra) {
+                    h2hBadge = '<span style="color: var(--orange-bright); font-weight:700;">NUESTRO CLAN</span>';
+                } else if (c.vs_hidra && (c.vs_hidra.hidra_wins > 0 || c.vs_hidra.hidra_losses > 0)) {
+                    const hidraWins = c.vs_hidra.hidra_wins;
+                    const hidraLosses = c.vs_hidra.hidra_losses;
+                    h2hBadge = `<span style="color: var(--green-text); font-weight:700;">${hidraWins}V</span> - <span style="color: var(--red-text); font-weight:700;">${hidraLosses}D</span>`;
+                }
+
+                tr.innerHTML = `
+                    <td style="font-weight: 800; color: ${c.rank && c.rank <= 60 ? 'var(--orange-bright)' : 'var(--text-muted)'};">
+                        ${c.rank ? '#' + c.rank : '—'}
+                    </td>
+                    <td><strong style="color: var(--orange-bright); font-family: 'JetBrains Mono';">${c.tag}</strong></td>
+                    <td style="color: #fff; font-weight: 500;">${c.name}</td>
+                    <td><strong>${c.pts !== null ? c.pts.toLocaleString() + ' pts' : '—'}</strong></td>
+                    <td style="color: var(--cyan); font-weight: 700;">${c.wr_event}</td>
+                    <td style="color: var(--green-text); font-weight: 700;">${c.tank_players !== null ? c.tank_players : '—'}</td>
+                    <td>${c.elo !== null ? c.elo : '—'}</td>
+                    <td style="color: var(--orange-bright); font-size: 12px; font-weight: 600;">${c.prize}</td>
+                    <td>${h2hBadge}</td>
+                `;
+
+                tr.onclick = () => selectClan(c.tag);
+                tbody.appendChild(tr);
+            });
+        }
+
+        function filterLeaderboard() {
+            const term = document.getElementById('leaderboard-filter').value.trim().toLowerCase();
+            const rows = document.querySelectorAll('#leaderboard-tbody tr');
+            rows.forEach(r => {
+                const text = r.textContent.toLowerCase();
+                r.style.display = text.includes(term) ? '' : 'none';
+            });
+        }
+
+        // Init
+        renderClanInfo();
+    </script>
+</body>
+</html>
