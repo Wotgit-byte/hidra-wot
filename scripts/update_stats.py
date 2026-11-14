@@ -287,6 +287,16 @@ def main():
                 })
                 
         players_by_clan[tag] = clan_players
+
+    # Override [HIDRA] with 100% verified real telemetry from Maneuvers Sheet / Collector Mod if available
+    real_hidra_file = os.path.join(BASE_DIR, 'hidra_real_players.json')
+    if os.path.exists(real_hidra_file):
+        with open(real_hidra_file, 'r', encoding='utf-8') as f:
+            real_hidra = json.load(f)
+            if real_hidra:
+                players_by_clan['[HIDRA]'] = real_hidra
+                print(f"-> Inyectados {len(real_hidra)} jugadores reales verificados de [HIDRA] con telemetría de replays.")
+
         
     print(f"Rosters compilados para {len(players_by_clan)} clanes.")
     

@@ -1,0 +1,460 @@
+{
+  "ODIN_NEUZ": {
+    "battles": 91,
+    "damage": 274538,
+    "frags": 73,
+    "assist": 33586,
+    "survived": 49,
+    "tanks": {
+      "Pz.Kpfw. Nue": 87,
+      "FV4025 Contriver": 1,
+      "BZ-79": 1,
+      "CS-67 Szakal": 1,
+      "KR-1": 1
+    },
+    "avg_dmg": 3017,
+    "avg_assist": 369,
+    "avg_frags": 0.8,
+    "surv_rate": "54%",
+    "fav_tank": "Pz.Kpfw. Nue (87)"
+  },
+  "Toffy_94": {
+    "battles": 83,
+    "damage": 165998,
+    "frags": 41,
+    "assist": 14437,
+    "survived": 41,
+    "tanks": {
+      "T803": 42,
+      "BZ-79": 1,
+      "AMX 67 Imbattable": 6,
+      "KR-1": 34
+    },
+    "avg_dmg": 2000,
+    "avg_assist": 174,
+    "avg_frags": 0.49,
+    "surv_rate": "49%",
+    "fav_tank": "T803 (42)"
+  },
+  "Ice_Drako": {
+    "battles": 91,
+    "damage": 161510,
+    "frags": 40,
+    "assist": 17930,
+    "survived": 44,
+    "tanks": {
+      "T803": 55,
+      "KR-1": 36
+    },
+    "avg_dmg": 1775,
+    "avg_assist": 197,
+    "avg_frags": 0.44,
+    "surv_rate": "48%",
+    "fav_tank": "T803 (55)"
+  },
+  "mortalkill": {
+    "battles": 91,
+    "damage": 228061,
+    "frags": 63,
+    "assist": 28495,
+    "survived": 55,
+    "tanks": {
+      "Taschenratte": 86,
+      "T803": 5
+    },
+    "avg_dmg": 2506,
+    "avg_assist": 313,
+    "avg_frags": 0.69,
+    "surv_rate": "60%",
+    "fav_tank": "Taschenratte (86)"
+  },
+  "ooWARRIORSoo": {
+    "battles": 91,
+    "damage": 232708,
+    "frags": 52,
+    "assist": 25075,
+    "survived": 47,
+    "tanks": {
+      "Pz.Kpfw. Nue": 28,
+      "Object 432U": 1,
+      "Fauteur": 3,
+      "AMX 67 Imbattable": 58,
+      "BZ-79": 1
+    },
+    "avg_dmg": 2557,
+    "avg_assist": 276,
+    "avg_frags": 0.57,
+    "surv_rate": "52%",
+    "fav_tank": "AMX 67 Imbattable (58)"
+  },
+  "Ramoscjro": {
+    "battles": 91,
+    "damage": 210227,
+    "frags": 66,
+    "assist": 19845,
+    "survived": 53,
+    "tanks": {
+      "Leopard 120 Verbessert": 80,
+      "Pz.Kpfw. Nue": 8,
+      "Taschenratte": 1,
+      "KR-1": 2
+    },
+    "avg_dmg": 2310,
+    "avg_assist": 218,
+    "avg_frags": 0.73,
+    "surv_rate": "58%",
+    "fav_tank": "Leopard 120 Verbessert (80)"
+  },
+  "thetough45": {
+    "battles": 91,
+    "damage": 280314,
+    "frags": 68,
+    "assist": 26152,
+    "survived": 55,
+    "tanks": {
+      "AMX 67 Imbattable": 20,
+      "T803": 1,
+      "Pz.Kpfw. Nue": 62,
+      "CAV mod. 71": 8
+    },
+    "avg_dmg": 3080,
+    "avg_assist": 287,
+    "avg_frags": 0.75,
+    "surv_rate": "60%",
+    "fav_tank": "Pz.Kpfw. Nue (62)"
+  },
+  "SamusArtemis": {
+    "battles": 8,
+    "damage": 27983,
+    "frags": 11,
+    "assist": 3326,
+    "survived": 7,
+    "tanks": {
+      "Strv 107-12": 6,
+      "Gorilla": 2
+    },
+    "avg_dmg": 3498,
+    "avg_assist": 416,
+    "avg_frags": 1.38,
+    "surv_rate": "88%",
+    "fav_tank": "Strv 107-12 (6)"
+  },
+  "bulgak0v": {
+    "battles": 87,
+    "damage": 210713,
+    "frags": 59,
+    "assist": 25705,
+    "survived": 56,
+    "tanks": {
+      "XM69 Hacker": 1,
+      "Object 432U": 1,
+      "KR-1": 33,
+      "Pz.Kpfw. Nue": 30,
+      "CS-67 Szakal": 2,
+      "Black Rock": 6,
+      "STK-2": 13,
+      "FV4025 Contriver": 1
+    },
+    "avg_dmg": 2422,
+    "avg_assist": 295,
+    "avg_frags": 0.68,
+    "surv_rate": "64%",
+    "fav_tank": "KR-1 (33)"
+  },
+  "Ironzweet": {
+    "battles": 87,
+    "damage": 239951,
+    "frags": 94,
+    "assist": 23796,
+    "survived": 66,
+    "tanks": {
+      "KR-1": 8,
+      "Pz.Kpfw. Nue": 71,
+      "STK-2": 5,
+      "Fauteur": 2,
+      "FV4025 Contriver": 1
+    },
+    "avg_dmg": 2758,
+    "avg_assist": 274,
+    "avg_frags": 1.08,
+    "surv_rate": "76%",
+    "fav_tank": "Pz.Kpfw. Nue (71)"
+  },
+  "zotz": {
+    "battles": 87,
+    "damage": 210114,
+    "frags": 76,
+    "assist": 21276,
+    "survived": 52,
+    "tanks": {
+      "Pz.Kpfw. Nue": 65,
+      "T803": 3,
+      "STK-2": 4,
+      "Fauteur": 4,
+      "Black Rock": 2,
+      "KR-1": 8,
+      "BZ-79": 1
+    },
+    "avg_dmg": 2415,
+    "avg_assist": 245,
+    "avg_frags": 0.87,
+    "surv_rate": "60%",
+    "fav_tank": "Pz.Kpfw. Nue (65)"
+  },
+  "Ositocojo": {
+    "battles": 87,
+    "damage": 173931,
+    "frags": 73,
+    "assist": 30490,
+    "survived": 53,
+    "tanks": {
+      "KR-1": 64,
+      "BZ-79": 8,
+      "STK-2": 7,
+      "Black Rock": 3,
+      "T803": 4,
+      "FV4025 Contriver": 1
+    },
+    "avg_dmg": 1999,
+    "avg_assist": 350,
+    "avg_frags": 0.84,
+    "surv_rate": "61%",
+    "fav_tank": "KR-1 (64)"
+  },
+  "K4VR0N": {
+    "battles": 87,
+    "damage": 213714,
+    "frags": 56,
+    "assist": 22398,
+    "survived": 59,
+    "tanks": {
+      "XM69 Hacker": 76,
+      "KR-1": 1,
+      "FV4025 Contriver": 2,
+      "Object 432U": 8
+    },
+    "avg_dmg": 2456,
+    "avg_assist": 257,
+    "avg_frags": 0.64,
+    "surv_rate": "68%",
+    "fav_tank": "XM69 Hacker (76)"
+  },
+  "xeldon333": {
+    "battles": 87,
+    "damage": 234593,
+    "frags": 92,
+    "assist": 18385,
+    "survived": 67,
+    "tanks": {
+      "Black Rock": 7,
+      "Pz.Kpfw. Nue": 69,
+      "KR-1": 4,
+      "Fauteur": 3,
+      "STK-2": 2,
+      "T803": 2
+    },
+    "avg_dmg": 2696,
+    "avg_assist": 211,
+    "avg_frags": 1.06,
+    "surv_rate": "77%",
+    "fav_tank": "Pz.Kpfw. Nue (69)"
+  },
+  "Sebas_Imat": {
+    "battles": 87,
+    "damage": 184068,
+    "frags": 74,
+    "assist": 25619,
+    "survived": 56,
+    "tanks": {
+      "KR-1": 70,
+      "FV4025 Contriver": 11,
+      "Gorilla": 3,
+      "Object 432U": 1,
+      "XM69 Hacker": 1,
+      "Taschenratte": 1
+    },
+    "avg_dmg": 2116,
+    "avg_assist": 294,
+    "avg_frags": 0.85,
+    "surv_rate": "64%",
+    "fav_tank": "KR-1 (70)"
+  },
+  "GEMINIS_Gabriel": {
+    "battles": 38,
+    "damage": 104016,
+    "frags": 35,
+    "assist": 6685,
+    "survived": 9,
+    "tanks": {
+      "XM69 Hacker": 4,
+      "T803": 4,
+      "Gorilla": 3,
+      "Black Rock": 10,
+      "KR-1": 10,
+      "STK-2": 4,
+      "Object 432U": 1,
+      "FV4025 Contriver": 2
+    },
+    "avg_dmg": 2737,
+    "avg_assist": 176,
+    "avg_frags": 0.92,
+    "surv_rate": "24%",
+    "fav_tank": "Black Rock (10)"
+  },
+  "GRAL_YESS": {
+    "battles": 38,
+    "damage": 96761,
+    "frags": 26,
+    "assist": 5835,
+    "survived": 12,
+    "tanks": {
+      "Gorilla": 29,
+      "KR-1": 5,
+      "CS-67 Szakal": 1,
+      "Object 432U": 1,
+      "XM69 Hacker": 1,
+      "FV4025 Contriver": 1
+    },
+    "avg_dmg": 2546,
+    "avg_assist": 154,
+    "avg_frags": 0.68,
+    "surv_rate": "32%",
+    "fav_tank": "Gorilla (29)"
+  },
+  "hurakan21": {
+    "battles": 38,
+    "damage": 63252,
+    "frags": 19,
+    "assist": 10446,
+    "survived": 7,
+    "tanks": {
+      "KR-1": 28,
+      "BZ-79": 3,
+      "Object 432U": 3,
+      "Gorilla": 1,
+      "FV4025 Contriver": 2,
+      "XM69 Hacker": 1
+    },
+    "avg_dmg": 1665,
+    "avg_assist": 275,
+    "avg_frags": 0.5,
+    "surv_rate": "18%",
+    "fav_tank": "KR-1 (28)"
+  },
+  "mario__invader": {
+    "battles": 38,
+    "damage": 49912,
+    "frags": 12,
+    "assist": 7924,
+    "survived": 5,
+    "tanks": {
+      "KR-1": 21,
+      "Gorilla": 2,
+      "XM69 Hacker": 8,
+      "FV4025 Contriver": 4,
+      "Object 432U": 3
+    },
+    "avg_dmg": 1313,
+    "avg_assist": 209,
+    "avg_frags": 0.32,
+    "surv_rate": "13%",
+    "fav_tank": "KR-1 (21)"
+  },
+  "Play_SoLo": {
+    "battles": 38,
+    "damage": 94727,
+    "frags": 33,
+    "assist": 1946,
+    "survived": 13,
+    "tanks": {
+      "KR-1": 7,
+      "FV4025 Contriver": 5,
+      "T803": 2,
+      "Gorilla": 22,
+      "Object 432U": 1,
+      "XM69 Hacker": 1
+    },
+    "avg_dmg": 2493,
+    "avg_assist": 51,
+    "avg_frags": 0.87,
+    "surv_rate": "34%",
+    "fav_tank": "Gorilla (22)"
+  },
+  "rfleb2": {
+    "battles": 35,
+    "damage": 68733,
+    "frags": 15,
+    "assist": 7634,
+    "survived": 5,
+    "tanks": {
+      "KR-1": 7,
+      "BZ-79": 13,
+      "Vz. 63P": 4,
+      "Gorilla": 3,
+      "Taschenratte": 3,
+      "FV4025 Contriver": 4,
+      "Object 432U": 1
+    },
+    "avg_dmg": 1964,
+    "avg_assist": 218,
+    "avg_frags": 0.43,
+    "surv_rate": "14%",
+    "fav_tank": "BZ-79 (13)"
+  },
+  "tongas1977": {
+    "battles": 18,
+    "damage": 31659,
+    "frags": 8,
+    "assist": 2752,
+    "survived": 3,
+    "tanks": {
+      "KR-1": 8,
+      "T803": 4,
+      "BZ-79": 2,
+      "Gorilla": 1,
+      "FV4025 Contriver": 1,
+      "Object 432U": 1,
+      "XM69 Hacker": 1
+    },
+    "avg_dmg": 1759,
+    "avg_assist": 153,
+    "avg_frags": 0.44,
+    "surv_rate": "17%",
+    "fav_tank": "KR-1 (8)"
+  },
+  "Protegeme_Sr_CT_Espiritu": {
+    "battles": 3,
+    "damage": 1687,
+    "frags": 0,
+    "assist": 0,
+    "survived": 0,
+    "tanks": {
+      "T803": 2,
+      "AMX 67 Imbattable": 1
+    },
+    "avg_dmg": 562,
+    "avg_assist": 0,
+    "avg_frags": 0.0,
+    "surv_rate": "0%",
+    "fav_tank": "T803 (2)"
+  },
+  "Capitan_Fideo": {
+    "battles": 20,
+    "damage": 34901,
+    "frags": 11,
+    "assist": 5311,
+    "survived": 2,
+    "tanks": {
+      "KR-1": 12,
+      "T803": 1,
+      "Object 432U": 5,
+      "BZ-79": 1,
+      "FV4025 Contriver": 1
+    },
+    "avg_dmg": 1745,
+    "avg_assist": 266,
+    "avg_frags": 0.55,
+    "surv_rate": "10%",
+    "fav_tank": "KR-1 (12)"
+  }
+}

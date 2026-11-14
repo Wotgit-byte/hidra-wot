@@ -491,7 +491,8 @@
     "pts": 25,
     "commander": "ooWARRIORSoo",
     "boxes": 893,
-    "time": "4:14 AM"
+    "time": "4:14 AM",
+    "pid": "7773291304787372"
   },
   {
     "date": "11/11/2026",
@@ -1245,7 +1246,8 @@
     "pts": 26,
     "commander": "K4VR0N",
     "boxes": 929,
-    "time": "4:55 AM"
+    "time": "4:55 AM",
+    "pid": "3638384554926585"
   },
   {
     "date": "11/10/2026",
@@ -1453,7 +1455,8 @@
     "pts": 50,
     "commander": "mario__invader",
     "boxes": 901,
-    "time": "4:25 AM"
+    "time": "4:25 AM",
+    "pid": "2309556624415774418"
   },
   {
     "date": "11/10/2026",
@@ -1557,7 +1560,8 @@
     "pts": 152,
     "commander": "K4VR0N",
     "boxes": 878,
-    "time": "4:11 AM"
+    "time": "4:11 AM",
+    "pid": "4570031680904730"
   },
   {
     "date": "11/10/2026",
@@ -3272,7 +3276,9 @@
     "result": "Victory",
     "map": "Karelia",
     "commander": "henrysabe1",
-    "boxes": 873
+    "boxes": 873,
+    "score": "7:5",
+    "pid": "2310441349024307611"
   },
   {
     "date": "11/13/2026",
@@ -4091,7 +4097,9 @@
     "result": "Defeat",
     "map": "Sand River",
     "commander": "mario__invader",
-    "boxes": 166
+    "boxes": 166,
+    "score": "6:7",
+    "pid": "2307569875624029991"
   },
   {
     "date": "11/12/2026",
@@ -4217,7 +4225,9 @@
     "result": "Victory",
     "map": "Pearl River",
     "commander": "ooWARRIORSoo",
-    "boxes": 860
+    "boxes": 860,
+    "score": "6:1",
+    "pid": "2307570893531283206"
   },
   {
     "date": "11/12/2026",
@@ -4244,7 +4254,8 @@
     "result": "Defeat",
     "map": "Redshire",
     "commander": "K4VR0N",
-    "boxes": 110
+    "boxes": 110,
+    "pid": "2307569940048544906"
   },
   {
     "date": "11/12/2026",
@@ -4397,7 +4408,9 @@
     "result": "Victory",
     "map": "Himmelsdorf",
     "commander": "Albatros14GTI",
-    "boxes": 928
+    "boxes": 928,
+    "score": "7:0",
+    "pid": "1697020682599422"
   },
   {
     "date": "11/12/2026",
@@ -4442,7 +4455,9 @@
     "result": "Victory",
     "map": "Mines",
     "commander": "Albatros14GTI",
-    "boxes": 875
+    "boxes": 875,
+    "score": "7:2",
+    "pid": "1697424409526470"
   },
   {
     "date": "11/12/2026",
@@ -4559,7 +4574,9 @@
     "result": "Defeat",
     "map": "El Halluf",
     "commander": "Albatros14GTI",
-    "boxes": 68
+    "boxes": 68,
+    "score": "1:7",
+    "pid": "1696805934233595"
   },
   {
     "date": "11/12/2026",
