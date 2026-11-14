@@ -692,7 +692,7 @@
 
         <div class="sidebar-footer">
             <div><span class="sync-dot"></span>API Wargaming NA Conectada</div>
-            <div style="margin-top: 4px; color: #768390;">Corte de Tanque en NA: <strong>Top 1.000</strong></div>
+            <div style="margin-top: 4px; color: #768390;">Corte de Tanque en NA: <strong>Top 2.000</strong></div>
             <div style="margin-top: 4px; color: var(--orange-bright);">Prime: 01:00 a 05:00 CET</div>
         </div>
     </aside>
@@ -757,7 +757,7 @@
                         <div>
                             <h2 style="font-size: 17px; color: #fff;">Puntos de fama personal de los jugadores del clan (Servidor NA)</h2>
                             <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">
-                                Mostrando todos los miembros que tienen al menos un punto de evento (Corte de tanque: Top 1.000)
+                                Mostrando todos los miembros que tienen al menos un punto de evento (Corte de tanque: Top 2.000)
                             </div>
                         </div>
                         <div style="display: flex; gap: 8px; align-items: center;">
@@ -774,7 +774,7 @@
                     <div class="filter-row">
                         <label class="chk-label">
                             <input type="checkbox" id="chk-tank-only" onchange="applyFilters()">
-                            <span style="color: var(--green-text); font-weight: 700;">🚜 Solo en Tanque (Top 1.000 NA)</span>
+                            <span style="color: var(--green-text); font-weight: 700;">🚜 Solo en Tanque (Top 2.000 NA)</span>
                         </label>
                         <label class="chk-label">
                             <input type="checkbox" id="chk-no-tank" onchange="applyFilters()">
@@ -795,7 +795,7 @@
                                 <th rowspan="2">Rol en Clan</th>
                                 <th rowspan="2">Posición</th>
                                 <th rowspan="2">Puntos de Fama</th>
-                                <th rowspan="2">Δ al corte (1k)</th>
+                                <th rowspan="2">Δ al corte (2k)</th>
                                 <th colspan="4" class="th-event-group">Estadísticas del evento (Escaramuzas T11)</th>
                                 <th rowspan="2">Premio</th>
                             </tr>
@@ -988,7 +988,7 @@
                 <div class="hero-card tank-card" onclick="goToPersonal(true)" title="Clic para ver los jugadores de ${c.tag} que aseguran tanque">
                     <div class="hero-val" style="color: var(--green-text);">${c.tank_players !== null ? c.tank_players : '—'}</div>
                     <div class="hero-lbl" style="color: var(--green-text);">JUGADORES EN TANQUE</div>
-                    <div class="hero-sub">Superando el corte de NA (Top 1.000)</div>
+                    <div class="hero-sub">Superando el corte de NA (Top 2.000)</div>
                     <div><span class="hero-badge-click">Ver lista nominal ↗</span></div>
                 </div>
 
@@ -1113,7 +1113,7 @@
                 <div>Multiplicador Bonos: <strong style="color: var(--orange-bright);">${c.multiplier || 'x1.00'}</strong></div>
                 <div>Puntos de Clan: <strong>${c.pts ? c.pts.toLocaleString() : '—'}</strong></div>
                 <div>En Leaderboard: <strong style="color: var(--cyan);">${c.leaderboard_players || '—'}</strong></div>
-                <div>En Tanque (Top 1.000 NA): <strong style="color: var(--green-text);">${c.tank_players || '—'}</strong></div>
+                <div>En Tanque (Top 2.000 NA): <strong style="color: var(--green-text);">${c.tank_players || '—'}</strong></div>
             `;
 
             if (tankOnly) {
@@ -1186,10 +1186,10 @@
                     <td style="font-weight: 700; color: #fff;">#${p.pos.toLocaleString()}</td>
                     <td><strong style="color: #fff;">${p.pts.toLocaleString()}</strong></td>
                     <td>${diffBadge}</td>
-                    <td style="color: var(--cyan); font-weight: 600;">${p.damage.toLocaleString()}</td>
-                    <td><strong>${p.battles}</strong></td>
-                    <td style="color: ${parseFloat(p.wins) >= 50 ? 'var(--green-text)' : 'var(--text-muted)'}; font-weight: 700;">${p.wins}</td>
-                    <td>${p.frags}</td>
+                    <td style="color: var(--cyan); font-weight: 600;">${p.damage_str || (p.damage ? p.damage.toLocaleString() : '—')}</td>
+                    <td><strong>${p.battles_str || p.battles || '—'}</strong></td>
+                    <td style="color: ${p.wins_str && p.wins_str !== '—' ? 'var(--cyan)' : 'var(--text-muted)'}; font-weight: 700;">${p.wins_str || p.wins || '—'}</td>
+                    <td>${p.frags_str || p.frags || '—'}</td>
                     <td>${rewardBadge}</td>
                 `;
                 tbody.appendChild(tr);
