@@ -2042,7 +2042,7 @@
     "enemy": "[NGS]",
     "result": "Defeat",
     "map": "Himmelsdorf",
-    "commander": "mario__invader",
+    "commander": "zotz",
     "boxes": 119
   },
   {
@@ -2096,7 +2096,7 @@
     "enemy": "[WE3D]",
     "result": "Victory",
     "map": "Prokhorovka",
-    "commander": "mario__invader",
+    "commander": "zotz",
     "boxes": 892
   },
   {
@@ -2132,7 +2132,7 @@
     "enemy": "[BLOCK]",
     "result": "Victory",
     "map": "Redshire",
-    "commander": "mario__invader",
+    "commander": "zotz",
     "boxes": 866
   },
   {
@@ -2195,7 +2195,7 @@
     "enemy": "[GNZ]",
     "result": "Defeat",
     "map": "El Halluf",
-    "commander": "mario__invader",
+    "commander": "zotz",
     "boxes": 167
   },
   {
@@ -2249,7 +2249,7 @@
     "enemy": "[RVLS]",
     "result": "Victory",
     "map": "Pilsen",
-    "commander": "mario__invader",
+    "commander": "zotz",
     "boxes": 955
   },
   {
@@ -2276,7 +2276,7 @@
     "enemy": "[CLASX]",
     "result": "Victory",
     "map": "El Halluf",
-    "commander": "mario__invader",
+    "commander": "zotz",
     "boxes": 952
   },
   {
@@ -2321,7 +2321,7 @@
     "enemy": "[WOHT]",
     "result": "Defeat",
     "map": "Redshire",
-    "commander": "mario__invader",
+    "commander": "zotz",
     "boxes": 146
   },
   {
@@ -2393,7 +2393,7 @@
     "enemy": "[-ELS-]",
     "result": "Victory",
     "map": "Ghost Town",
-    "commander": "mario__invader",
+    "commander": "zotz",
     "boxes": 847
   },
   {
@@ -2438,7 +2438,7 @@
     "enemy": "[CLASX]",
     "result": "Victory",
     "map": "Redshire",
-    "commander": "mario__invader",
+    "commander": "zotz",
     "boxes": 947
   },
   {
@@ -2492,7 +2492,7 @@
     "enemy": "[KOKO]",
     "result": "Victory",
     "map": "Karelia",
-    "commander": "mario__invader",
+    "commander": "zotz",
     "boxes": 954
   },
   {
@@ -2528,7 +2528,7 @@
     "enemy": "[COPE4]",
     "result": "Victory",
     "map": "Pilsen",
-    "commander": "mario__invader",
+    "commander": "zotz",
     "boxes": 847
   },
   {
@@ -2555,7 +2555,7 @@
     "enemy": "[WOHT]",
     "result": "Victory",
     "map": "El Halluf",
-    "commander": "mario__invader",
+    "commander": "zotz",
     "boxes": 837
   },
   {
@@ -2600,7 +2600,7 @@
     "enemy": "[BLOCK]",
     "result": "Victory",
     "map": "Karelia",
-    "commander": "mario__invader",
+    "commander": "zotz",
     "boxes": 898
   },
   {
@@ -2663,7 +2663,7 @@
     "enemy": "[YRMUM]",
     "result": "Defeat",
     "map": "Ensk",
-    "commander": "mario__invader",
+    "commander": "zotz",
     "boxes": 134
   },
   {
@@ -2717,7 +2717,7 @@
     "enemy": "[BLOCK]",
     "result": "Victory",
     "map": "Cliff",
-    "commander": "mario__invader",
+    "commander": "zotz",
     "boxes": 919
   },
   {
@@ -2762,7 +2762,7 @@
     "enemy": "[HIWAY]",
     "result": "Victory",
     "map": "Lakeville",
-    "commander": "mario__invader",
+    "commander": "zotz",
     "boxes": 927
   },
   {
@@ -2789,7 +2789,7 @@
     "enemy": "[LM-AO]",
     "result": "Victory",
     "map": "Mines",
-    "commander": "mario__invader",
+    "commander": "zotz",
     "boxes": 889
   },
   {
@@ -2834,7 +2834,7 @@
     "enemy": "[GNZ]",
     "result": "Victory",
     "map": "Pearl River",
-    "commander": "mario__invader",
+    "commander": "zotz",
     "boxes": 886
   },
   {
@@ -2879,7 +2879,7 @@
     "enemy": "[OPTIC]",
     "result": "Victory",
     "map": "Ghost Town",
-    "commander": "mario__invader",
+    "commander": "zotz",
     "boxes": 858
   },
   {
@@ -2924,7 +2924,7 @@
     "enemy": "[BLOCK]",
     "result": "Victory",
     "map": "Redshire",
-    "commander": "mario__invader",
+    "commander": "zotz",
     "boxes": 869
   },
   {
@@ -2987,7 +2987,7 @@
     "enemy": "[5RING]",
     "result": "Victory",
     "map": "Sand River",
-    "commander": "mario__invader",
+    "commander": "zotz",
     "boxes": 859
   },
   {
@@ -3023,7 +3023,7 @@
     "enemy": "[SMOKN]",
     "result": "Defeat",
     "map": "Prokhorovka",
-    "commander": "zotz",
+    "commander": "K4VR0N",
     "boxes": 134
   },
   {
@@ -3068,7 +3068,7 @@
     "enemy": "[_SL_]",
     "result": "Victory",
     "map": "Mines",
-    "commander": "zotz",
+    "commander": "K4VR0N",
     "boxes": 926
   },
   {
@@ -3104,7 +3104,7 @@
     "enemy": "[TAC-D]",
     "result": "Victory",
     "map": "Sand River",
-    "commander": "zotz",
+    "commander": "K4VR0N",
     "boxes": 960
   },
   {
@@ -3149,7 +3149,7 @@
     "enemy": "[CVS]",
     "result": "Victory",
     "map": "Lakeville",
-    "commander": "zotz",
+    "commander": "K4VR0N",
     "boxes": 850
   },
   {
@@ -3176,7 +3176,7 @@
     "enemy": "[IN-KA]",
     "result": "Victory",
     "map": "Cliff",
-    "commander": "zotz",
+    "commander": "K4VR0N",
     "boxes": 885
   },
   {
@@ -3212,7 +3212,7 @@
     "enemy": "[IN-KA]",
     "result": "Victory",
     "map": "Karelia",
-    "commander": "zotz",
+    "commander": "K4VR0N",
     "boxes": 899
   },
   {
