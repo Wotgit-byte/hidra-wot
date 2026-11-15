@@ -6,9 +6,9 @@
     "pts": 5559,
     "diff": 4100,
     "in_tank": true,
-    "damage_str": "1,999",
-    "battles_str": "87",
-    "wins_str": "61%",
+    "damage_str": "1,952",
+    "battles_str": "113",
+    "wins_str": "62%",
     "frags_str": "0.84",
     "prize": "700 Bonos"
   },
@@ -19,10 +19,10 @@
     "pts": 5557,
     "diff": 4098,
     "in_tank": true,
-    "damage_str": "2,422",
-    "battles_str": "87",
-    "wins_str": "64%",
-    "frags_str": "0.68",
+    "damage_str": "2,480",
+    "battles_str": "113",
+    "wins_str": "65%",
+    "frags_str": "0.72",
     "prize": "700 Bonos"
   },
   {
@@ -32,10 +32,10 @@
     "pts": 5519,
     "diff": 4060,
     "in_tank": true,
-    "damage_str": "2,696",
-    "battles_str": "87",
-    "wins_str": "77%",
-    "frags_str": "1.06",
+    "damage_str": "2,817",
+    "battles_str": "113",
+    "wins_str": "79%",
+    "frags_str": "1.09",
     "prize": "700 Bonos"
   },
   {
@@ -45,10 +45,10 @@
     "pts": 5489,
     "diff": 4030,
     "in_tank": true,
-    "damage_str": "2,758",
-    "battles_str": "87",
-    "wins_str": "76%",
-    "frags_str": "1.08",
+    "damage_str": "2,929",
+    "battles_str": "113",
+    "wins_str": "75%",
+    "frags_str": "1.13",
     "prize": "700 Bonos"
   },
   {
@@ -58,10 +58,10 @@
     "pts": 5469,
     "diff": 4010,
     "in_tank": true,
-    "damage_str": "2,116",
-    "battles_str": "87",
-    "wins_str": "64%",
-    "frags_str": "0.85",
+    "damage_str": "2,163",
+    "battles_str": "113",
+    "wins_str": "67%",
+    "frags_str": "0.86",
     "prize": "700 Bonos"
   },
   {
@@ -71,10 +71,10 @@
     "pts": 5421,
     "diff": 3962,
     "in_tank": true,
-    "damage_str": "2,456",
-    "battles_str": "87",
-    "wins_str": "68%",
-    "frags_str": "0.64",
+    "damage_str": "2,474",
+    "battles_str": "113",
+    "wins_str": "67%",
+    "frags_str": "0.63",
     "prize": "700 Bonos"
   },
   {
@@ -84,10 +84,10 @@
     "pts": 5215,
     "diff": 3756,
     "in_tank": true,
-    "damage_str": "2,415",
-    "battles_str": "87",
+    "damage_str": "2,729",
+    "battles_str": "108",
     "wins_str": "60%",
-    "frags_str": "0.87",
+    "frags_str": "0.93",
     "prize": "700 Bonos"
   },
   {
@@ -188,10 +188,10 @@
     "pts": 3716,
     "diff": 2257,
     "in_tank": true,
-    "damage_str": "—",
-    "battles_str": "—",
-    "wins_str": "—",
-    "frags_str": "—",
+    "damage_str": "2,782",
+    "battles_str": "90",
+    "wins_str": "49%",
+    "frags_str": "0.82",
     "prize": "600 Bonos"
   },
   {
@@ -201,10 +201,10 @@
     "pts": 3716,
     "diff": 2257,
     "in_tank": true,
-    "damage_str": "—",
-    "battles_str": "—",
-    "wins_str": "—",
-    "frags_str": "—",
+    "damage_str": "1,907",
+    "battles_str": "90",
+    "wins_str": "50%",
+    "frags_str": "0.57",
     "prize": "600 Bonos"
   },
   {
@@ -214,10 +214,10 @@
     "pts": 3716,
     "diff": 2257,
     "in_tank": true,
-    "damage_str": "—",
-    "battles_str": "—",
-    "wins_str": "—",
-    "frags_str": "—",
+    "damage_str": "1,507",
+    "battles_str": "90",
+    "wins_str": "50%",
+    "frags_str": "0.76",
     "prize": "600 Bonos"
   },
   {
@@ -227,10 +227,10 @@
     "pts": 3608,
     "diff": 2149,
     "in_tank": true,
-    "damage_str": "—",
-    "battles_str": "—",
-    "wins_str": "—",
-    "frags_str": "—",
+    "damage_str": "2,599",
+    "battles_str": "90",
+    "wins_str": "47%",
+    "frags_str": "0.93",
     "prize": "600 Bonos"
   },
   {
@@ -253,10 +253,10 @@
     "pts": 3578,
     "diff": 2119,
     "in_tank": true,
-    "damage_str": "—",
-    "battles_str": "—",
-    "wins_str": "—",
-    "frags_str": "—",
+    "damage_str": "2,732",
+    "battles_str": "90",
+    "wins_str": "44%",
+    "frags_str": "0.71",
     "prize": "600 Bonos"
   },
   {
@@ -266,10 +266,10 @@
     "pts": 3574,
     "diff": 2115,
     "in_tank": true,
-    "damage_str": "—",
-    "battles_str": "—",
-    "wins_str": "—",
-    "frags_str": "—",
+    "damage_str": "1,512",
+    "battles_str": "90",
+    "wins_str": "43%",
+    "frags_str": "0.42",
     "prize": "600 Bonos"
   },
   {
@@ -279,10 +279,10 @@
     "pts": 3238,
     "diff": 1779,
     "in_tank": true,
-    "damage_str": "1,313",
-    "battles_str": "38",
-    "wins_str": "13%",
-    "frags_str": "0.32",
+    "damage_str": "1,475",
+    "battles_str": "59",
+    "wins_str": "29%",
+    "frags_str": "0.49",
     "prize": "500 Bonos"
   },
   {
@@ -292,10 +292,10 @@
     "pts": 3218,
     "diff": 1759,
     "in_tank": true,
-    "damage_str": "1,665",
-    "battles_str": "38",
-    "wins_str": "18%",
-    "frags_str": "0.50",
+    "damage_str": "1,804",
+    "battles_str": "59",
+    "wins_str": "29%",
+    "frags_str": "0.61",
     "prize": "500 Bonos"
   },
   {
@@ -305,10 +305,10 @@
     "pts": 3214,
     "diff": 1755,
     "in_tank": true,
-    "damage_str": "2,493",
-    "battles_str": "38",
-    "wins_str": "34%",
-    "frags_str": "0.87",
+    "damage_str": "2,416",
+    "battles_str": "59",
+    "wins_str": "46%",
+    "frags_str": "0.83",
     "prize": "500 Bonos"
   },
   {
@@ -318,10 +318,10 @@
     "pts": 2465,
     "diff": 1006,
     "in_tank": true,
-    "damage_str": "—",
-    "battles_str": "—",
-    "wins_str": "—",
-    "frags_str": "—",
+    "damage_str": "1,757",
+    "battles_str": "26",
+    "wins_str": "62%",
+    "frags_str": "0.81",
     "prize": "500 Bonos"
   },
   {
@@ -422,10 +422,10 @@
     "pts": 1525,
     "diff": 66,
     "in_tank": true,
-    "damage_str": "—",
-    "battles_str": "—",
-    "wins_str": "—",
-    "frags_str": "—",
+    "damage_str": "2,439",
+    "battles_str": "21",
+    "wins_str": "71%",
+    "frags_str": "0.76",
     "prize": "250 Bonos"
   },
   {
@@ -474,10 +474,10 @@
     "pts": 928,
     "diff": -531,
     "in_tank": false,
-    "damage_str": "—",
-    "battles_str": "—",
-    "wins_str": "—",
-    "frags_str": "—",
+    "damage_str": "2,198",
+    "battles_str": "21",
+    "wins_str": "57%",
+    "frags_str": "0.71",
     "prize": "250 Bonos"
   },
   {
@@ -578,10 +578,10 @@
     "pts": 61,
     "diff": -1398,
     "in_tank": false,
-    "damage_str": "—",
-    "battles_str": "—",
-    "wins_str": "—",
-    "frags_str": "—",
+    "damage_str": "0",
+    "battles_str": "1",
+    "wins_str": "0%",
+    "frags_str": "0.00",
     "prize": "Sin Bonos"
   },
   {
