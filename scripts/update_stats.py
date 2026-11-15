@@ -314,9 +314,11 @@ def main():
         
     clans_json_str = json.dumps(clans_list, ensure_ascii=False)
     players_json_str = json.dumps(players_by_clan, ensure_ascii=False)
+    battles_json_str = json.dumps(battles_list, ensure_ascii=False)
     
     html = html.replace('/*CLANS_DATA_JSON*/[]', clans_json_str)
     html = html.replace('/*PLAYERS_DATA_JSON*/{}', players_json_str)
+    html = html.replace('/*BATTLES_DATA_JSON*/[]', battles_json_str)
     
     # 9. Write index.html and portal_campana_na.html
     target_index = os.path.join(ROOT_DIR, 'index.html')

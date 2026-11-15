@@ -688,6 +688,10 @@
                 <span class="nav-icon">🏆</span>
                 <span>Leaderboard NA (Clanes Clasificados)</span>
             </div>
+            <div class="nav-item" id="nav-commanders" onclick="switchTab('commanders')">
+                <span class="nav-icon">🛡️</span>
+                <span>Estado Mayor (FCs)</span>
+            </div>
         </nav>
 
         <div class="sidebar-footer">
@@ -852,12 +856,79 @@
 
             </section>
 
+            <!-- ================= TAB 4: ESTADO MAYOR (FCS Y RESULTADOS) ================= -->
+            <section id="tab-commanders" class="tab-view">
+                
+                <div class="personal-card" style="margin-bottom: 24px;">
+                    <div class="personal-top">
+                        <div>
+                            <h2 style="font-size: 18px; color: #fff; display: flex; align-items: center; gap: 8px;">
+                                <span>🛡️</span> Estado Mayor de Combate — Field Commanders [HIDRA]
+                            </h2>
+                            <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">
+                                Rendimiento táctico oficial en 468 batallas de Maniobras NA. Haz clic en cualquier comandante para ver su historial y marcadores.
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 12px; align-items: center;">
+                            <span style="font-size: 12px; background: rgba(245, 158, 11, 0.15); color: var(--orange-bright); padding: 5px 12px; border-radius: 6px; font-weight: 700; border: 1px solid rgba(245, 158, 11, 0.3);">
+                                468 Batallas Registradas
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Vitrina de Palizas / Marcadores Contundentes -->
+                    <div style="background: rgba(13, 17, 23, 0.6); border-bottom: 1px solid var(--border); padding: 16px 20px;">
+                        <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+                            <span>⚡</span> Marcadores Contundentes Registrados (Palizas 7-0 a 7-2)
+                        </div>
+                        <div id="stomp-records-container" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <!-- Injected by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Cuadrícula de Tarjetas de Comandantes -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; padding: 20px;" id="fc-cards-grid">
+                        <!-- Injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Desglose de Batallas del Comandante Seleccionado -->
+                <div class="h2h-box" id="fc-detail-box">
+                    <div class="h2h-title" id="fc-detail-title">
+                        ⚔️ Historial Táctico de Batallas
+                    </div>
+                    <div class="h2h-summary-bar" id="fc-detail-summary">
+                        <!-- Injected by JS -->
+                    </div>
+                    <div style="overflow-x: auto;">
+                        <table class="mini-table">
+                            <thead>
+                                <tr>
+                                    <th>Fecha y Hora</th>
+                                    <th>Clan Rival</th>
+                                    <th>Mapa</th>
+                                    <th>Resultado</th>
+                                    <th>Marcador Exacto</th>
+                                    <th>Puntos Fama</th>
+                                    <th>Comandante</th>
+                                </tr>
+                            </thead>
+                            <tbody id="fc-detail-tbody">
+                                <!-- Injected by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </section>
+
         </div>
     </main>
 
     <script>
         const clansData = /*CLANS_DATA_JSON*/[];
         const playersData = /*PLAYERS_DATA_JSON*/{};
+        const battlesData = /*BATTLES_DATA_JSON*/[];
         let currentClan = clansData.find(c => c.tag === '[HIDRA]') || clansData[0];
 
         function switchTab(tabId) {
@@ -870,6 +941,7 @@
             if (tabId === 'claninfo') renderClanInfo();
             else if (tabId === 'personal') renderPersonalView();
             else if (tabId === 'leaderboard') renderLeaderboard();
+            else if (tabId === 'commanders') renderCommandersView();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -1254,6 +1326,225 @@
             rows.forEach(r => {
                 const text = r.textContent.toLowerCase();
                 r.style.display = text.includes(term) ? '' : 'none';
+            });
+        }
+
+        // ================= FCs / COMMANDERS TAB =================
+        let selectedFC = 'TODOS';
+
+        function renderCommandersView() {
+            // 1. Group battles by commander
+            const commanders = {};
+            let stomps70 = 0, stomps71 = 0, stomps72 = 0;
+
+            battlesData.forEach(b => {
+                const comm = b.commander || 'Sin Comandante';
+                if (!commanders[comm]) {
+                    commanders[comm] = {
+                        name: comm,
+                        total: 0,
+                        wins: 0,
+                        losses: 0,
+                        scores: {},
+                        maps: {},
+                        rivals: {},
+                        battles: []
+                    };
+                }
+                const c = commanders[comm];
+                c.total++;
+                if (b.result === 'Victory') c.wins++;
+                else if (b.result === 'Defeat') c.losses++;
+                c.battles.push(b);
+
+                // Score stats
+                if (b.score) {
+                    c.scores[b.score] = (c.scores[b.score] || 0) + 1;
+                    if (b.score === '7:0') stomps70++;
+                    if (b.score === '7:1') stomps71++;
+                    if (b.score === '7:2') stomps72++;
+                }
+
+                // Map stats
+                if (b.map) {
+                    c.maps[b.map] = (c.maps[b.map] || 0) + (b.result === 'Victory' ? 1 : 0);
+                }
+            });
+
+            // 2. Render Stomp Badges
+            const stompContainer = document.getElementById('stomp-records-container');
+            stompContainer.innerHTML = `
+                <div style="background: rgba(35, 134, 54, 0.25); border: 1px solid rgba(63, 185, 80, 0.4); border-radius: 6px; padding: 6px 14px; display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 16px;">🏆</span>
+                    <strong style="color: #4ade80; font-family: 'JetBrains Mono'; font-size: 14px;">7:0</strong>
+                    <span style="color: #fff; font-weight: 700;">${stomps70} Palizas Limpias</span>
+                </div>
+                <div style="background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 6px; padding: 6px 14px; display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 16px;">⚡</span>
+                    <strong style="color: var(--cyan); font-family: 'JetBrains Mono'; font-size: 14px;">7:1</strong>
+                    <span style="color: #fff; font-weight: 700;">${stomps71} Dominaciones</span>
+                </div>
+                <div style="background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 6px; padding: 6px 14px; display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 16px;">🔥</span>
+                    <strong style="color: var(--orange-bright); font-family: 'JetBrains Mono'; font-size: 14px;">7:2</strong>
+                    <span style="color: #fff; font-weight: 700;">${stomps72} Victorias Claras</span>
+                </div>
+                <div style="margin-left: auto; display: flex; align-items: center;">
+                    <button class="btn-hemero" style="font-size: 11.5px; padding: 4px 12px;" onclick="filterFC('TODOS')">Ver Todas (468)</button>
+                </div>
+            `;
+
+            // 3. Render FC Cards Grid
+            const grid = document.getElementById('fc-cards-grid');
+            grid.innerHTML = '';
+
+            const sortedFCs = Object.values(commanders).sort((a, b) => b.total - a.total);
+
+            sortedFCs.forEach(fc => {
+                const wr = Math.round((fc.wins / fc.total) * 100);
+                const wrColor = wr >= 75 ? '#4ade80' : (wr >= 60 ? 'var(--cyan)' : (wr >= 50 ? 'var(--orange-bright)' : 'var(--red-text)'));
+                const isSelected = (selectedFC === fc.name);
+
+                // Best map
+                let bestMap = '—';
+                let maxMapWins = 0;
+                for (const [m, w] of Object.entries(fc.maps)) {
+                    if (w > maxMapWins) {
+                        maxMapWins = w;
+                        bestMap = `${m} (${w}V)`;
+                    }
+                }
+
+                const card = document.createElement('div');
+                card.style.cssText = `
+                    background: ${isSelected ? 'rgba(56, 189, 248, 0.12)' : 'var(--bg-card-sub)'};
+                    border: 1px solid ${isSelected ? 'var(--cyan)' : 'var(--border)'};
+                    border-radius: 8px;
+                    padding: 16px;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                `;
+                card.onclick = () => filterFC(fc.name);
+
+                card.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                        <div>
+                            <div style="font-size: 15px; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 6px;">
+                                <span style="font-size: 12px; color: var(--orange-bright);">👑</span>
+                                <span>${fc.name}</span>
+                            </div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Field Commander [HIDRA]</div>
+                        </div>
+                        <div style="font-size: 20px; font-weight: 900; color: ${wrColor}; font-family: 'JetBrains Mono';">
+                            ${wr}%
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; background: var(--bg-card); padding: 10px; border-radius: 6px; border: 1px solid rgba(48, 54, 61, 0.4); margin-bottom: 10px;">
+                        <div>
+                            <div style="font-size: 10.5px; color: var(--text-muted); text-transform: uppercase;">Récord</div>
+                            <div style="font-size: 13.5px; font-weight: 700;">
+                                <span style="color: var(--green-text);">${fc.wins}V</span> - <span style="color: var(--red-text);">${fc.losses}D</span>
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 10.5px; color: var(--text-muted); text-transform: uppercase;">Batallas</div>
+                            <div style="font-size: 13.5px; font-weight: 700; color: #fff;">${fc.total}</div>
+                        </div>
+                    </div>
+
+                    <div style="font-size: 11px; color: var(--text-muted); display: flex; justify-content: space-between;">
+                        <span>Mejor Mapa: <strong style="color: var(--cyan);">${bestMap}</strong></span>
+                        <span style="color: var(--orange-bright); font-weight: 600;">Ver historial →</span>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            // 4. Render Details Table for selectedFC
+            renderFCDetail(selectedFC, commanders);
+        }
+
+        function filterFC(fcName) {
+            selectedFC = fcName;
+            renderCommandersView();
+            document.getElementById('fc-detail-box').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function renderFCDetail(fcName, commanders) {
+            const title = document.getElementById('fc-detail-title');
+            const summary = document.getElementById('fc-detail-summary');
+            const tbody = document.getElementById('fc-detail-tbody');
+            tbody.innerHTML = '';
+
+            let list = [];
+            if (fcName === 'TODOS') {
+                title.innerHTML = `⚔️ Todas las Batallas de Campaña Disputadas por [HIDRA] (468)`;
+                list = battlesData;
+                const wins = list.filter(b => b.result === 'Victory').length;
+                const losses = list.length - wins;
+                const wr = Math.round((wins / list.length) * 100);
+                summary.innerHTML = `
+                    <div>
+                        <div style="font-size: 12px; color: var(--text-muted);">Balance Total Oficial</div>
+                        <div class="h2h-score">
+                            <span style="color: var(--green-text);">${wins} Victorias</span> — 
+                            <span style="color: var(--red-text);">${losses} Derrotas</span>
+                            <span style="font-size: 13px; color: var(--text-muted); margin-left: 8px;">(${wr}% WR Global)</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span style="font-size: 12px; background: rgba(56, 189, 248, 0.15); color: var(--cyan); padding: 4px 10px; border-radius: 6px; font-weight: 700;">
+                            ${list.length} Batallas
+                        </span>
+                    </div>
+                `;
+            } else {
+                const fc = commanders[fcName];
+                if (!fc) return;
+                list = fc.battles;
+                const wr = Math.round((fc.wins / fc.total) * 100);
+                title.innerHTML = `⚔️ Historial de Batallas Dirigidas por <span style="color: var(--orange-bright);">${fcName}</span>`;
+                summary.innerHTML = `
+                    <div>
+                        <div style="font-size: 12px; color: var(--text-muted);">Rendimiento Táctico de Mando</div>
+                        <div class="h2h-score">
+                            <span style="color: var(--green-text);">${fc.wins} Victorias</span> — 
+                            <span style="color: var(--red-text);">${fc.losses} Derrotas</span>
+                            <span style="font-size: 13px; color: var(--text-muted); margin-left: 8px;">(${wr}% Winrate)</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                        <span style="font-size: 12px; background: rgba(56, 189, 248, 0.15); color: var(--cyan); padding: 4px 10px; border-radius: 6px; font-weight: 700;">
+                            ${list.length} Batallas Dirigidas
+                        </span>
+                        <button class="btn-hemero" style="font-size: 11px; padding: 4px 8px;" onclick="filterFC('TODOS')">✕ Quitar filtro</button>
+                    </div>
+                `;
+            }
+
+            list.forEach(b => {
+                const isWin = (b.result === 'Victory');
+                const tr = document.createElement('tr');
+                
+                let scoreBadge = '<span style="color: #484f58;">—</span>';
+                if (b.score) {
+                    const isStomp = ['7:0', '7:1', '7:2'].includes(b.score);
+                    scoreBadge = `<strong style="font-family: 'JetBrains Mono'; color: ${isStomp ? 'var(--cyan)' : '#fff'}; background: ${isStomp ? 'rgba(56,189,248,0.15)' : 'rgba(255,255,255,0.06)'}; padding: 2px 7px; border-radius: 4px;">${b.score}</strong>`;
+                }
+
+                const ptsBadge = b.pts ? `<strong style="color: var(--orange-bright); font-size: 12px;">+${b.pts} pts</strong>` : '<span style="color: #484f58;">—</span>';
+
+                tr.innerHTML = `
+                    <td><strong style="color: var(--cyan);">${b.date || ''}</strong> <span style="color: var(--text-muted); font-size: 11.5px; margin-left: 4px;">${b.time}</span></td>
+                    <td><strong style="color: var(--orange-bright); font-family: 'JetBrains Mono';">${b.enemy}</strong></td>
+                    <td style="color: #fff; font-weight: 500;">${b.map}</td>
+                    <td><span class="${isWin ? 'badge-win' : 'badge-loss'}">${isWin ? 'Victoria' : 'Derrota'}</span></td>
+                    <td>${scoreBadge}</td>
+                    <td>${ptsBadge}</td>
+                    <td style="font-weight: 600; color: #fff;">${b.commander}</td>
+                `;
+                tbody.appendChild(tr);
             });
         }
 
